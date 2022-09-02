@@ -1,0 +1,67 @@
+<mat-card [style.width.%]="widthService.width">
+  <form [formGroup]="group">
+    <div class="radio">
+      <span>Display Name*</span>
+
+      <mat-radio-group>
+        <mat-radio-button value="1">Yes</mat-radio-button>
+        <mat-radio-button value="2">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field compact>
+      <mat-label>Last Name</mat-label>
+      <input formControlName="lastName" matInput>
+      <mat-error matErrorMessaging></mat-error>
+    </mat-form-field>
+    
+    <mat-form-field compact>
+      <mat-label>First Name</mat-label>
+      <input formControlName="firstName" matInput>
+      <mat-error matErrorMessaging></mat-error>
+    </mat-form-field>
+
+    <mat-form-field compact>
+      <mat-label>Middle Initial</mat-label>
+      <input formControlName="middleInitial" matInput>
+      <mat-error matErrorMessaging></mat-error>
+    </mat-form-field>
+
+    <div class="row solo">
+      <mat-form-field compact class="third">
+        <mat-label>Names Source</mat-label>
+        <mat-select formControlName="nameSource">
+          <mat-option value="mother">Mother</mat-option>
+          <mat-option value="father">Father</mat-option>
+          <mat-option value="nickname">NickName</mat-option>
+        </mat-select>
+        <mat-error matErrorMessaging></mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field compact>
+      <mat-label>Prefix</mat-label>
+      <mat-select formControlName="prefix">
+        <mat-option value="mr">Mr.</mat-option>
+        <mat-option value="mrs">Mrs.</mat-option>
+        <mat-option value="ms">Ms.</mat-option>
+        <mat-option value="dr">Dr.</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field compact>
+      <mat-label>Suffix</mat-label>
+      <mat-select formControlName="suffix">
+        <mat-option value="first">I</mat-option>
+        <mat-option value="second">II</mat-option>
+        <mat-option value="third">III</mat-option>
+        <mat-option value="jr">Jr.</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <mat-card-actions align="end">
+    <button mat-stroked-button>Cancel</button>
+    <button mat-flat-button color="primary">Save</button>
+  </mat-card-actions>
+</mat-card>
