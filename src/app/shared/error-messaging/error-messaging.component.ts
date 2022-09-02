@@ -17,7 +17,7 @@ interface MatErrors {
 }
 
 @Component({
-  selector: '[metErrorMessaging]',
+  selector: '[matErrorMessaging]',
   template: '{{ error }}',
   styles: []
 })
@@ -34,8 +34,6 @@ export class ErrorMessagingComponent implements AfterViewInit {
   ) { }
   
   ngAfterViewInit(): void {
-    debugger;
-
     this.errorMap = {
       required: (name: string) => `${name} is required`,
       minlength: (name: string) => `${name} should be longer`,
@@ -53,7 +51,13 @@ export class ErrorMessagingComponent implements AfterViewInit {
     this.input = container._control;
     
     const inputName = (this.input.ngControl as FormControlName).name as string;
-    this.name = inputName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    this.name = inputName.split(/(?=[A-Z])/).map((word, index) => {
+      if (index == 0) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      } else {
+        return word;
+      }
+    }).join(' ');
     
     this.input.ngControl?.statusChanges?.pipe(startWith(this.input.ngControl.status)).subscribe(this.updateErrors);
   }

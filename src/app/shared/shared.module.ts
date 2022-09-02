@@ -17,11 +17,12 @@ import { ErrorMessagingComponent } from './error-messaging/error-messaging.compo
   ],
   exports: [
     SpacerDirective,
-    CompactDirective
+    CompactDirective,
+    ErrorMessagingComponent
   ],
   providers: [
     WidthService,
-    CompactDirective
+    CompactDirective,
   ]
 })
 export class SharedModule { }

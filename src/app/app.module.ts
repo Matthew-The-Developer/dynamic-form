@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NamesComponent } from './names/names.component';
+import { ErrorMessagingComponent } from './shared/error-messaging/error-messaging.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,13 @@ import { NamesComponent } from './names/names.component';
     NamesComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
     SharedModule,
-    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
